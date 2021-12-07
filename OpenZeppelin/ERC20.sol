@@ -5,8 +5,6 @@ import "./Context.sol";
 import "./IERC20.sol";
 import "./Ownable.sol";
 
-// TODO: why override errors?
-
 contract ERC20 is Context, IERC20, Ownable {
     mapping(address => uint256) private _balances;
 

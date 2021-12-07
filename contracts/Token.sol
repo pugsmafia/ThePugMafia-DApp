@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8;
 
-import "./ERC721.sol";
+import "../OpenZeppelin/ERC721.sol";
+import "../OpenZeppelin/IERC721.sol";
 import "./Pug.sol";
-
-// TODO: just fix this interface thing, idk how to do it
 
 contract Token is Pug, IERC721 {
 
@@ -30,10 +29,9 @@ function balanceOf(address _owner) external view returns (uint256) {
     _transfer(_from, _to, _tokenId);
   }
 
-    // TODO: onlyOwnerOf modifier needs to be implemented
-  function approve(address _approved, uint256 _tokenId) external payable onlyOwnerOf(_tokenId) {
+  function approve(address _approved, uint256 _tokenId) external payable onlyOwner(_tokenId) {
     pugApprovals[_tokenId] = _approved;
-    // Approval is part of erc721 i think
+    // Approval is part of erc721
     emit Approval(msg.sender, _approved, _tokenId);
   }
 }

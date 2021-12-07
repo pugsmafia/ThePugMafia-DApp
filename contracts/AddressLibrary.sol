@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8;
 
-// TODO: trying to be organized idk wtf this is? taki?!?!
-
 library Address {
     /**
      * @dev Returns true if `account` is a contract.

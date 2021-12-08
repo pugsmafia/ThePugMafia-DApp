@@ -4,18 +4,18 @@ pragma solidity >=0.8;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Weapon is ERC721, Ownable {
+contract Token is ERC721, Ownable {
     
-    struct Weapon {
+    struct Pug {
+        string name;
         uint8 rarity;
-        uint8 firePower;
-        uint8 ammoTimeLeft;
+        uint8 health;
         
     }
 
     uint256 nextId = 0;
 
-    mapping(uint256 => Weapon) private _tokenDetails;
+    mapping(uint256 => Pug) private _tokenDetails;
 
     constructor(string memory name, string memory symbol) ERC721(name, symbol) {
         
@@ -28,7 +28,7 @@ contract Weapon is ERC721, Ownable {
     function mint(/*todo*/) public onlyOwner {
         _safeMint(msg.sender, nextId);
 
-        _tokenDetails[nextId] = Weapon(/**params */);
+        _tokenDetails[nextId] = Pug(/**params */);
         nextId++;
     }
 
